@@ -19,7 +19,7 @@ export const AudioPlayer: React.FC = () => {
   const fadeInterval = useRef<NodeJS.Timeout | null>(null);
 
   // Royal-free, dreamy emotional background music (soft piano/orchestral track)
-  const musicUrl = 'https://assets.mixkit.co/music/preview/mixkit-dreaming-big-1111.mp3';
+  const musicUrl = 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3';
 
   // Keep refs of key state to avoid stale closure issues in global event handlers
   const isPlayingRef = useRef(isPlaying);
