@@ -113,18 +113,18 @@ export const CelebrationPage: React.FC<CelebrationPageProps> = ({ onReset, onBac
   };
 
   return (
-    <div className="flex flex-col items-center justify-between min-h-[72vh] text-center py-6 px-4 md:px-8 w-full max-w-xl mx-auto overflow-hidden relative select-none">
+    <div className="flex flex-col items-center justify-between min-h-[58vh] sm:min-h-[72vh] text-center py-4 sm:py-6 px-2 sm:px-4 md:px-8 w-full max-w-xl mx-auto overflow-hidden relative select-none">
       
       {/* Top Header & Floating Emblem */}
       <div className="flex flex-col items-center">
         {/* Cake symbol with floating golden crowns */}
-        <div className="relative mb-4">
+        <div className="relative mb-3">
           <motion.div
             animate={isBlownOut ? { scale: 1 } : { scale: [1, 1.08, 1], rotate: [0, 1.5, -1.5, 0] }}
             transition={{ repeat: Infinity, duration: 4, ease: 'easeInOut' }}
-            className="relative p-3.5 rounded-full bg-gradient-to-r from-pastel-rose-light to-pastel-lavender/40 border border-white/60 shadow-md z-10"
+            className="relative p-2.5 rounded-full bg-gradient-to-r from-pastel-rose-light to-pastel-lavender/40 border border-white/60 shadow-md z-10"
           >
-            <Cake size={24} className="text-pastel-rose-deep" />
+            <Cake size={20} className="text-pastel-rose-deep" />
           </motion.div>
           {/* Tiny floating stars around */}
           <motion.div
@@ -144,17 +144,17 @@ export const CelebrationPage: React.FC<CelebrationPageProps> = ({ onReset, onBac
         </div>
 
         {/* Heading */}
-        <h2 className="font-serif text-2xl md:text-3xl text-pastel-rose-deep font-bold tracking-wide mb-1.5 text-glow">
+        <h2 className="responsive-title text-pastel-rose-deep font-bold tracking-wide mb-1.5 text-glow">
           The Celebration
         </h2>
 
-        <p className="font-sans text-[10px] md:text-xs text-pastel-rose-deep/60 tracking-[0.2em] uppercase font-bold mb-6">
+        <p className="font-sans text-[10px] md:text-xs text-pastel-rose-deep/60 tracking-[0.2em] uppercase font-bold mb-4 sm:mb-6">
           Chapter IV • Blow the Magical Candle
         </p>
       </div>
 
       {/* Elegant birthday cake interactive visual shell */}
-      <div className="relative w-52 h-52 md:w-56 md:h-56 rounded-full bg-gradient-to-b from-white/40 to-pastel-rose-light/10 border border-white/60 flex flex-col items-center justify-center mb-6 shadow-lg shadow-pastel-rose-deep/5 overflow-hidden group">
+      <div className="relative w-44 h-44 sm:w-52 sm:h-52 md:w-56 md:h-56 rounded-full bg-gradient-to-b from-white/40 to-pastel-rose-light/10 border border-white/60 flex flex-col items-center justify-center mb-5 shadow-lg shadow-pastel-rose-deep/5 overflow-hidden group">
         
         {/* Interactive candle stand and candle body */}
         <div className="relative flex flex-col items-center justify-end h-32 w-28">
@@ -225,13 +225,13 @@ export const CelebrationPage: React.FC<CelebrationPageProps> = ({ onReset, onBac
       </div>
 
       {/* Primary Action Button to Blow candle with ripple effect */}
-      <div className="z-10 w-full mb-6">
+      <div className="z-10 w-full mb-5 flex justify-center">
         <Button
           variant={isBlownOut ? "glass" : "primary"}
           size="md"
           onClick={handleBlowCandle}
           disabled={isBlownOut}
-          className="gap-2.5 px-8 py-3 shadow-[0_0_15px_rgba(243,163,178,0.3)] hover:shadow-[0_0_25px_rgba(243,163,178,0.5)] border border-white/30"
+          className="gap-2.5 w-full max-w-[420px] shadow-[0_0_15px_rgba(243,163,178,0.3)] hover:shadow-[0_0_25px_rgba(243,163,178,0.5)] border border-white/30"
         >
           {isBlownOut ? (
             <>
@@ -262,40 +262,40 @@ export const CelebrationPage: React.FC<CelebrationPageProps> = ({ onReset, onBac
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.92, y: 30 }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="w-full max-w-md rounded-[32px] glass-panel bg-gradient-to-b from-pastel-gold-light/95 via-[#FFFDFE]/95 to-pastel-rose-light/95 border border-white/80 shadow-2xl p-6 md:p-8 text-center relative"
+              className="w-[94%] max-w-md rounded-[24px] sm:rounded-[32px] glass-panel bg-gradient-to-b from-pastel-gold-light/95 via-[#FFFDFE]/95 to-pastel-rose-light/95 border border-white/80 shadow-2xl p-5 sm:p-6 md:p-8 text-center relative overflow-y-auto max-h-[90vh]"
               style={{ backdropFilter: 'blur(16px)' }}
             >
               {/* Close Button */}
               <button
                 onClick={() => setShowWishModal(false)}
-                className="absolute top-5 right-5 p-2 rounded-full bg-white/80 hover:bg-white text-pastel-rose-deep transition-all cursor-pointer focus:outline-none shadow-sm"
+                className="absolute top-4 right-4 p-2 rounded-full bg-white/80 hover:bg-white text-pastel-rose-deep transition-all cursor-pointer focus:outline-none shadow-sm"
                 aria-label="Close Letter"
               >
                 <X size={15} />
               </button>
 
               {/* Header Heart Crown */}
-              <div className="flex justify-center mb-4">
-                <div className="p-3 bg-white rounded-full shadow-md border border-pastel-rose-light relative">
-                  <Heart size={26} className="text-pastel-rose-deep fill-pastel-rose/25 animate-pulse" />
-                  <div className="absolute -top-1.5 -right-1.5 text-gold-accent">
-                    <Sparkles size={14} />
+              <div className="flex justify-center mb-3">
+                <div className="p-2.5 bg-white rounded-full shadow-md border border-pastel-rose-light relative">
+                  <Heart size={22} className="text-pastel-rose-deep fill-pastel-rose/25 animate-pulse" />
+                  <div className="absolute -top-1 -right-1 text-gold-accent">
+                    <Sparkles size={12} />
                   </div>
                 </div>
               </div>
 
               {/* Star-cast Confirmation Heading */}
-              <span className="text-[10px] font-sans text-pastel-rose-deep/60 tracking-widest uppercase font-bold block mb-1">
+              <span className="text-[9px] sm:text-[10px] font-sans text-pastel-rose-deep/60 tracking-widest uppercase font-bold block mb-1">
                 Your Magical Wish is Sealed
               </span>
-              <h3 className="font-serif text-2xl font-bold text-pastel-rose-deep tracking-wide mb-4">
-                Happy Birthday, Elena Rose! 🌸
+              <h3 className="font-serif text-xl sm:text-2xl font-bold text-pastel-rose-deep tracking-wide mb-3">
+                Elena Rose! 🌸
               </h3>
 
               {/* Heartfelt Blessing Paragraph with high contrast readable styling */}
               <p 
-                className="font-serif text-[17px] md:text-[18px] text-[#333333] bg-white/92 p-5 md:p-6 rounded-2xl border border-white/70 italic shadow-inner mb-6"
-                style={{ textShadow: '0.5px 0.5px 1px rgba(0, 0, 0, 0.05)', lineHeight: '1.8' }}
+                className="font-serif text-[15px] sm:text-[18px] text-[#333333] bg-white/92 p-4 sm:p-6 rounded-2xl border border-white/70 italic shadow-inner mb-5"
+                style={{ textShadow: '0.5px 0.5px 1px rgba(0, 0, 0, 0.05)', lineHeight: '1.7' }}
               >
                 "Your sisterly bond is a guiding beacon of joy. May this next chapter of your life be written in pure light, sweet laughter, stardust dreams, and cozy, quiet coffee sips. You are deeply loved, admired, and cherished beyond measure."
               </p>
@@ -306,7 +306,7 @@ export const CelebrationPage: React.FC<CelebrationPageProps> = ({ onReset, onBac
                   variant="gold" 
                   size="sm" 
                   onClick={() => setShowWishModal(false)}
-                  className="px-5 py-2.5 rounded-full text-xs shadow-md border border-white/20"
+                  className="px-5 py-2.5 rounded-full text-xs shadow-md border border-white/20 w-full sm:w-auto"
                 >
                   <Gift size={12} />
                   <span>Accept Wishes</span>
@@ -339,7 +339,7 @@ export const CelebrationPage: React.FC<CelebrationPageProps> = ({ onReset, onBac
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.92, y: 30 }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="w-full max-w-md rounded-[32px] border border-white/80 shadow-2xl p-6 md:p-8 text-center relative overflow-hidden"
+              className="w-[94%] max-w-md rounded-[24px] sm:rounded-[32px] border border-white/80 shadow-2xl p-5 sm:p-6 md:p-8 text-center relative overflow-y-auto max-h-[90vh]"
               style={{ 
                 backgroundColor: 'rgba(255, 255, 255, 0.85)',
                 backdropFilter: 'blur(20px)',
@@ -348,26 +348,26 @@ export const CelebrationPage: React.FC<CelebrationPageProps> = ({ onReset, onBac
               {/* Close Button */}
               <button
                 onClick={() => setShowMakeWishModal(false)}
-                className="absolute top-5 right-5 p-2 rounded-full bg-white/80 hover:bg-white text-pastel-rose-deep transition-all cursor-pointer focus:outline-none shadow-sm"
+                className="absolute top-4 right-4 p-2 rounded-full bg-white/80 hover:bg-white text-pastel-rose-deep transition-all cursor-pointer focus:outline-none shadow-sm"
                 aria-label="Close"
               >
                 <X size={15} />
               </button>
 
               {/* Title & Subtitle */}
-              <div className="flex flex-col items-center mb-6">
-                <div className="p-3 bg-pastel-rose-light/40 rounded-full mb-3 border border-pastel-rose-light relative">
-                  <Sparkles size={24} style={{ color: '#E75480' }} />
+              <div className="flex flex-col items-center mb-5">
+                <div className="p-2.5 bg-pastel-rose-light/40 rounded-full mb-2 border border-pastel-rose-light relative">
+                  <Sparkles size={20} style={{ color: '#E75480' }} />
                 </div>
                 <h3 
-                  className="font-serif text-xl md:text-2xl tracking-wide mb-2"
+                  className="font-serif text-lg sm:text-2xl tracking-wide mb-1.5"
                   style={{ color: '#E75480', fontWeight: 700 }}
                 >
                   ✨ Make Your Secret Wish ✨
                 </h3>
                 <p 
-                  className="font-serif italic max-w-xs leading-relaxed"
-                  style={{ color: '#6B7280', fontSize: '15px' }}
+                  className="font-serif italic max-w-xs leading-relaxed text-[13px] sm:text-[15px]"
+                  style={{ color: '#6B7280' }}
                 >
                   "Close your eyes, make a wish from your heart, and let the stars carry it."
                 </p>
@@ -413,13 +413,13 @@ export const CelebrationPage: React.FC<CelebrationPageProps> = ({ onReset, onBac
 
               {/* Error validation message */}
               {wishError && (
-                <p className="text-xs font-sans font-semibold text-red-500 mt-3 text-center">
+                <p className="text-xs font-sans font-semibold text-red-500 mt-2 text-center">
                   {wishError}
                 </p>
               )}
 
               {/* Action Buttons */}
-              <div className="mt-6 flex flex-col sm:flex-row items-center gap-3 w-full">
+              <div className="mt-5 flex flex-col sm:flex-row items-center gap-3 w-full">
                 <Button
                   variant="outline"
                   size="md"
@@ -431,6 +431,7 @@ export const CelebrationPage: React.FC<CelebrationPageProps> = ({ onReset, onBac
                     borderColor: '#E75480',
                     borderWidth: '1px',
                     backgroundColor: 'transparent',
+                    height: '52px',
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.backgroundColor = 'rgba(231, 84, 128, 0.08)';
@@ -450,6 +451,7 @@ export const CelebrationPage: React.FC<CelebrationPageProps> = ({ onReset, onBac
                   style={{
                     background: 'linear-gradient(135deg, #FF7EB3, #FF5E95)',
                     color: 'white',
+                    height: '52px',
                   }}
                 >
                   {isSendingWish ? (
@@ -484,7 +486,7 @@ export const CelebrationPage: React.FC<CelebrationPageProps> = ({ onReset, onBac
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.9, y: 30 }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="w-full max-w-sm text-center relative overflow-hidden p-8"
+              className="w-[94%] max-w-sm text-center relative p-5 sm:p-8 overflow-y-auto max-h-[90vh]"
               style={{ 
                 backgroundColor: 'rgba(255, 255, 255, 0.95)',
                 border: '1px solid rgba(232, 84, 128, 0.18)',
@@ -494,13 +496,13 @@ export const CelebrationPage: React.FC<CelebrationPageProps> = ({ onReset, onBac
               }}
             >
               {/* Spinning/pulsing shooting star effect */}
-              <div className="flex justify-center mb-5">
+              <div className="flex justify-center mb-4">
                 <motion.div
                   animate={{ rotate: 360 }}
                   transition={{ repeat: Infinity, duration: 8, ease: "linear" }}
-                  className="p-4 bg-white/90 rounded-full shadow-lg border border-pastel-gold/30 relative"
+                  className="p-3 bg-white/90 rounded-full shadow-lg border border-pastel-gold/30 relative"
                 >
-                  <Sparkles size={32} className="text-gold-accent" />
+                  <Sparkles size={26} className="text-gold-accent" />
                   <motion.div
                     animate={{ scale: [1, 1.2, 1], opacity: [0.5, 1, 0.5] }}
                     transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
@@ -511,23 +513,20 @@ export const CelebrationPage: React.FC<CelebrationPageProps> = ({ onReset, onBac
 
               {/* Magical response text */}
               <h3 
-                className="font-serif tracking-wide mb-4 text-center"
+                className="font-serif tracking-wide mb-3 text-center text-2xl sm:text-[34px] leading-snug"
                 style={{
                   color: '#E75480',
                   fontWeight: 700,
-                  fontSize: '34px',
-                  lineHeight: '1.2'
                 }}
               >
                 ✨ Your Wish Has Been Sealed ✨
               </h3>
               
               <div 
-                className="font-serif text-center p-5 rounded-2xl shadow-inner mb-4 whitespace-pre-line"
+                className="font-serif text-center p-4 sm:p-5 rounded-2xl shadow-inner mb-4 whitespace-pre-line text-[15px] sm:text-[18px]"
                 style={{
                   color: '#333333',
-                  fontSize: '18px',
-                  lineHeight: '1.8',
+                  lineHeight: '1.7',
                   fontWeight: 500,
                   backgroundColor: 'rgba(255, 255, 255, 0.5)',
                   border: '1px solid rgba(232, 84, 128, 0.08)'
@@ -542,10 +541,9 @@ export const CelebrationPage: React.FC<CelebrationPageProps> = ({ onReset, onBac
 
               {/* Optional small note */}
               <p 
-                className="font-sans text-center mb-6 max-w-xs mx-auto"
+                className="font-sans text-center mb-5 max-w-xs mx-auto text-[13px] sm:text-[15px]"
                 style={{
                   color: '#6B7280',
-                  fontSize: '15px'
                 }}
               >
                 Some wishes are meant to stay secret.<br />
@@ -554,7 +552,7 @@ export const CelebrationPage: React.FC<CelebrationPageProps> = ({ onReset, onBac
 
               {/* Progress/Timer indicator */}
               <div className="flex flex-col items-center justify-center">
-                <div className="flex items-center justify-center gap-1 text-sm mb-3">
+                <div className="flex items-center justify-center gap-1 text-xs sm:text-sm mb-3">
                   <span style={{ color: '#E75480', fontWeight: 600 }}>
                     ✨ Blowing Out the Candle in{' '}
                     <AnimatePresence mode="popLayout">
@@ -574,7 +572,7 @@ export const CelebrationPage: React.FC<CelebrationPageProps> = ({ onReset, onBac
                 </div>
                 
                 {/* Timer Bar */}
-                <div className="w-48 h-2 bg-pastel-rose/10 rounded-full overflow-hidden mb-5 relative shadow-[0_0_8px_rgba(255,126,179,0.2)]">
+                <div className="w-40 sm:w-48 h-2 bg-pastel-rose/10 rounded-full overflow-hidden mb-4 sm:mb-5 relative shadow-[0_0_8px_rgba(255,126,179,0.2)]">
                   <motion.div 
                     initial={{ width: "100%" }}
                     animate={{ width: "0%" }}
@@ -591,11 +589,12 @@ export const CelebrationPage: React.FC<CelebrationPageProps> = ({ onReset, onBac
                   variant="gold"
                   size="sm"
                   onClick={skipSuccessCountdown}
-                  className="px-6 py-3 rounded-full text-sm border-none font-sans font-bold"
+                  className="px-6 py-3 rounded-full text-sm border-none font-sans font-bold w-full max-w-[280px]"
                   style={{
                     background: 'linear-gradient(135deg, #FBBF24, #D4A017)',
                     color: 'white',
-                    boxShadow: '0 4px 14px rgba(251, 191, 36, 0.3)'
+                    boxShadow: '0 4px 14px rgba(251, 191, 36, 0.3)',
+                    height: '52px',
                   }}
                   whileHover={{ 
                     scale: 1.03, 
@@ -611,11 +610,11 @@ export const CelebrationPage: React.FC<CelebrationPageProps> = ({ onReset, onBac
       </AnimatePresence>
 
       {/* Route Control Actions */}
-      <div className="flex items-center gap-4 justify-center z-10 w-full">
-        <Button variant="outline" size="md" onClick={onBack} className="gap-1.5">
+      <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 justify-center z-10 w-full max-w-sm mt-3">
+        <Button variant="outline" size="md" onClick={onBack} className="gap-1.5 w-full sm:flex-1">
           <span>Back</span>
         </Button>
-        <Button variant="gold" size="md" onClick={handleRestart} className="gap-1.5 shadow-[0_0_12px_rgba(212,175,55,0.25)] hover:shadow-[0_0_18px_rgba(212,175,55,0.45)]">
+        <Button variant="gold" size="md" onClick={handleRestart} className="gap-1.5 w-full sm:flex-1 shadow-[0_0_12px_rgba(212,175,55,0.25)] hover:shadow-[0_0_18px_rgba(212,175,55,0.45)]">
           <RotateCcw size={14} />
           <span>Relive the Magic</span>
         </Button>

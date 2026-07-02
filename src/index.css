@@ -111,3 +111,66 @@
 .text-glow-gold {
   text-shadow: 0 0 15px rgba(229, 195, 132, 0.4);
 }
+
+/* Responsive Typography Scaling (WCAG Compliant Contrast and Clear Visual Hierarchy) */
+.responsive-title {
+  font-family: var(--font-serif);
+  font-size: clamp(28px, 8vw, 36px);
+  line-height: 1.25;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+@media (min-width: 768px) {
+  .responsive-title {
+    font-size: 40px;
+  }
+}
+@media (min-width: 1200px) {
+  .responsive-title {
+    font-size: 48px;
+  }
+}
+
+.responsive-subtitle {
+  font-family: var(--font-sans);
+  font-size: 18px;
+  line-height: 1.4;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+@media (min-width: 768px) {
+  .responsive-subtitle {
+    font-size: 20px;
+  }
+}
+@media (min-width: 1200px) {
+  .responsive-subtitle {
+    font-size: 22px;
+  }
+}
+
+.responsive-body {
+  font-family: var(--font-serif);
+  font-size: 16px;
+  line-height: 1.7;
+}
+@media (min-width: 768px) {
+  .responsive-body {
+    font-size: 17px;
+    line-height: 1.8;
+  }
+}
+@media (min-width: 1200px) {
+  .responsive-body {
+    font-size: 18px;
+    line-height: 1.9;
+  }
+}
+
+/* GPU acceleration for smoother micro-interactions and mobile animations */
+.gpu-accelerated {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+

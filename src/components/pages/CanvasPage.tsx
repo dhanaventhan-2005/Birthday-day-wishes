@@ -221,12 +221,12 @@ export const CanvasPage: React.FC<CanvasPageProps> = ({ onNext, onBack }) => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-between min-h-[72vh] text-center py-6 px-4 md:px-8 w-full max-w-xl mx-auto overflow-hidden relative select-none">
+    <div className="flex flex-col items-center justify-between min-h-[58vh] sm:min-h-[72vh] text-center py-4 sm:py-6 px-2 sm:px-4 md:px-8 w-full max-w-xl mx-auto overflow-hidden relative select-none">
       
       {/* Top Header & Floating Emblem */}
       <div className="flex flex-col items-center">
         {/* Sparkle emblem with expanding pulse rings */}
-        <div className="relative mb-4">
+        <div className="relative mb-3">
           <motion.div
             animate={{ scale: [0.9, 1.12, 0.9], opacity: [0.4, 0.85, 0.4] }}
             transition={{ repeat: Infinity, duration: 2.8, ease: 'easeInOut' }}
@@ -235,18 +235,18 @@ export const CanvasPage: React.FC<CanvasPageProps> = ({ onNext, onBack }) => {
           <motion.div
             animate={{ rotate: [0, 180, 360] }}
             transition={{ repeat: Infinity, duration: 18, ease: 'linear' }}
-            className="relative p-3 rounded-full bg-pastel-gold-light/50 border border-pastel-gold/40 z-10 shadow-sm"
+            className="relative p-2.5 rounded-full bg-pastel-gold-light/50 border border-pastel-gold/40 z-10 shadow-sm"
           >
-            <Sparkles size={24} className="text-gold-accent" />
+            <Sparkles size={20} className="text-gold-accent" />
           </motion.div>
         </div>
 
         {/* Heading */}
-        <h2 className="font-serif text-2xl md:text-3xl text-pastel-rose-deep font-bold tracking-wide mb-1.5 text-glow">
+        <h2 className="responsive-title text-pastel-rose-deep font-bold tracking-wide mb-1.5 text-glow">
           The Stardust Canvas
         </h2>
 
-        <p className="font-sans text-[10px] md:text-xs text-pastel-rose-deep/60 tracking-[0.2em] uppercase font-bold mb-6">
+        <p className="font-sans text-[10px] md:text-xs text-pastel-rose-deep/60 tracking-[0.2em] uppercase font-bold mb-4 sm:mb-6">
           Chapter III • Paint with Infinite Starlight
         </p>
       </div>
@@ -254,7 +254,7 @@ export const CanvasPage: React.FC<CanvasPageProps> = ({ onNext, onBack }) => {
       {/* Interactive Drawing Stage */}
       <div 
         ref={containerRef}
-        className="w-full max-w-md h-64 md:h-72 rounded-[32px] border-2 border-dashed border-pastel-rose/30 flex flex-col items-center justify-center mb-6 bg-white/25 backdrop-blur-md relative overflow-hidden shadow-inner shadow-pastel-rose-deep/[0.02]"
+        className="w-full max-w-md h-48 sm:h-64 md:h-72 rounded-[24px] sm:rounded-[32px] border-2 border-dashed border-pastel-rose/30 flex flex-col items-center justify-center mb-5 bg-white/25 backdrop-blur-md relative overflow-hidden shadow-inner shadow-pastel-rose-deep/[0.02]"
       >
         <canvas
           ref={canvasRef}
@@ -292,12 +292,12 @@ export const CanvasPage: React.FC<CanvasPageProps> = ({ onNext, onBack }) => {
       </div>
 
       {/* Route Control Actions */}
-      <div className="flex items-center gap-4 justify-center z-10 w-full">
-        <Button variant="outline" size="md" onClick={onBack} className="gap-1.5">
+      <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 justify-center z-10 w-full max-w-sm mt-3">
+        <Button variant="outline" size="md" onClick={onBack} className="gap-1.5 w-full sm:flex-1">
           <ChevronLeft size={16} />
           <span>Back</span>
         </Button>
-        <Button variant="primary" size="md" onClick={onNext} className="gap-1.5">
+        <Button variant="primary" size="md" onClick={onNext} className="gap-1.5 w-full sm:flex-1">
           <span>Celebrate Elena</span>
           <ChevronRight size={16} />
         </Button>

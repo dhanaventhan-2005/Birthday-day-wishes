@@ -54,12 +54,12 @@ export const Button: React.FC<ButtonProps> = ({
     }
   };
 
-  const baseStyles = 'relative overflow-hidden inline-flex items-center justify-center font-sans font-medium rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-pastel-rose/30 disabled:opacity-50 disabled:pointer-events-none cursor-pointer';
+  const baseStyles = 'relative overflow-hidden inline-flex items-center justify-center font-sans font-medium rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-pastel-rose/30 disabled:opacity-50 disabled:pointer-events-none cursor-pointer select-none touch-manipulation min-h-[44px]';
   
   const sizeStyles = {
-    sm: 'px-4 py-1.5 text-xs tracking-wider uppercase',
-    md: 'px-6 py-2.5 text-sm tracking-wide',
-    lg: 'px-8 py-3.5 text-base tracking-wider',
+    sm: 'px-4 py-2 text-xs tracking-wider uppercase sm:px-5 sm:py-2.5',
+    md: 'w-full max-w-[420px] h-[52px] text-[15px] sm:w-auto sm:h-auto sm:max-w-none sm:px-7 sm:py-3.5 sm:text-base tracking-wide',
+    lg: 'w-full max-w-[420px] h-[54px] text-base sm:w-auto sm:h-auto sm:max-w-none sm:px-9 sm:py-4 sm:text-[18px] tracking-wider',
   };
 
   const variantStyles = {

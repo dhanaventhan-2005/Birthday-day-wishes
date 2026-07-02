@@ -76,11 +76,16 @@ export const WelcomePage: React.FC<WelcomePageProps> = ({ onNext }) => {
 
   // Initialize atmospheric particles, slow-moving clouds, and background balloons
   useEffect(() => {
-    // 1. Generate delicate ambient background particles
+    // 1. Generate delicate ambient background particles (reduced by 50% on mobile for performance)
+    const isMobile = window.innerWidth < 768;
     const generatedParticles: AmbientParticle[] = [];
     
     // Twinkling stars & hearts & orbs
-    for (let i = 0; i < 10; i++) {
+    const heartCount = isMobile ? 5 : 10;
+    const starCount = isMobile ? 6 : 12;
+    const orbCount = isMobile ? 3 : 6;
+    
+    for (let i = 0; i < heartCount; i++) {
       generatedParticles.push({
         id: `ambient-heart-${i}`,
         x: Math.random() * 85 + 7,
@@ -92,7 +97,7 @@ export const WelcomePage: React.FC<WelcomePageProps> = ({ onNext }) => {
       });
     }
 
-    for (let i = 0; i < 12; i++) {
+    for (let i = 0; i < starCount; i++) {
       generatedParticles.push({
         id: `ambient-star-${i}`,
         x: Math.random() * 92 + 4,
@@ -104,7 +109,7 @@ export const WelcomePage: React.FC<WelcomePageProps> = ({ onNext }) => {
       });
     }
 
-    for (let i = 0; i < 6; i++) {
+    for (let i = 0; i < orbCount; i++) {
       generatedParticles.push({
         id: `ambient-orb-${i}`,
         x: Math.random() * 80 + 10,
@@ -117,23 +122,26 @@ export const WelcomePage: React.FC<WelcomePageProps> = ({ onNext }) => {
     }
     setParticles(generatedParticles);
 
-    // 2. Generate premium floating balloons rising continuously
-    const initialBalloons: BalloonConfig[] = Array.from({ length: 5 }).map((_, i) => ({
+    // 2. Generate premium floating balloons rising continuously (fewer on mobile)
+    const balloonCount = isMobile ? 2 : 5;
+    const initialBalloons: BalloonConfig[] = Array.from({ length: balloonCount }).map((_, i) => ({
       id: `balloon-init-${i}-${Date.now()}`,
-      x: 10 + i * 20 + (Math.random() * 10 - 5), // distribute across horizontal axis
-      size: Math.random() * 15 + 28, // optimized size
+      x: 10 + i * (isMobile ? 40 : 20) + (Math.random() * 10 - 5), // distribute across horizontal axis
+      size: Math.random() * 15 + 24, // optimized size
       color: BALLOON_COLORS[i % BALLOON_COLORS.length],
       duration: Math.random() * 14 + 18, // slow rise
       delay: Math.random() * 4,
     }));
     setBalloons(initialBalloons);
 
-    // 3. Generate 3 slow moving background clouds
-    const initialClouds: CloudConfig[] = [
-      { id: 'cloud-1', y: 12, scale: 0.9, duration: 80, delay: 0, direction: 1 },
-      { id: 'cloud-2', y: 35, scale: 0.7, duration: 110, delay: -40, direction: -1 },
-      { id: 'cloud-3', y: 22, scale: 1.1, duration: 95, delay: -20, direction: 1 },
-    ];
+    // 3. Generate background clouds (fewer on mobile)
+    const initialClouds: CloudConfig[] = isMobile 
+      ? [{ id: 'cloud-1', y: 15, scale: 0.8, duration: 90, delay: 0, direction: 1 }]
+      : [
+          { id: 'cloud-1', y: 12, scale: 0.9, duration: 80, delay: 0, direction: 1 },
+          { id: 'cloud-2', y: 35, scale: 0.7, duration: 110, delay: -40, direction: -1 },
+          { id: 'cloud-3', y: 22, scale: 1.1, duration: 95, delay: -20, direction: 1 },
+        ];
     setClouds(initialClouds);
   }, []);
 
@@ -198,7 +206,7 @@ export const WelcomePage: React.FC<WelcomePageProps> = ({ onNext }) => {
   }, []);
 
   return (
-    <div className="relative w-full min-h-[72vh] flex flex-col items-center justify-between text-center py-6 px-4 md:px-8 overflow-hidden select-none">
+    <div className="relative w-full min-h-[58vh] sm:min-h-[72vh] flex flex-col items-center justify-between text-center py-4 sm:py-6 px-2 sm:px-4 md:px-8 overflow-hidden select-none">
       
       {/* ================= BACKGROUND EFFECTS & GRADIENT LAYERS ================= */}
       
@@ -458,12 +466,12 @@ export const WelcomePage: React.FC<WelcomePageProps> = ({ onNext }) => {
         initial={{ opacity: 0, y: -20, scale: 0.96 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
-        className="z-10 mt-2 px-6 py-4 rounded-3xl glass-panel shadow-md border border-white/60 w-full max-w-md mx-auto"
+        className="z-10 mt-1 px-4 py-3.5 sm:px-6 sm:py-4 rounded-2xl sm:rounded-3xl glass-panel shadow-md border border-white/60 w-full max-w-sm sm:max-w-md mx-auto"
       >
-        <span className="font-sans text-xs text-pastel-rose-deep/60 tracking-[0.3em] uppercase font-bold mb-1.5 block">
+        <span className="font-sans text-[10px] sm:text-xs text-pastel-rose-deep/60 tracking-[0.3em] uppercase font-bold mb-1.5 block">
           Joyous Celebration
         </span>
-        <h1 className="font-serif text-3xl md:text-4xl text-pastel-rose-deep font-bold tracking-wide text-glow flex items-center justify-center gap-2">
+        <h1 className="responsive-title text-pastel-rose-deep font-bold tracking-wide text-glow flex items-center justify-center gap-1.5 sm:gap-2">
           <span>🎉</span>
           <span className="bg-gradient-to-r from-pastel-rose-deep via-[#D86F86] to-gold-deep bg-clip-text text-transparent">
             Happy Birthday
@@ -473,7 +481,7 @@ export const WelcomePage: React.FC<WelcomePageProps> = ({ onNext }) => {
       </motion.div>
 
       {/* 7. Cute Vector Animated Cat Illustration */}
-      <div className="relative w-44 h-44 md:w-52 md:h-52 my-6 z-10 flex items-center justify-center">
+      <div className="relative w-32 h-32 sm:w-44 sm:h-44 md:w-52 md:h-52 my-4 md:my-6 z-10 flex items-center justify-center">
         <motion.div
           animate={catControls}
           whileHover={{ scale: 1.05 }}

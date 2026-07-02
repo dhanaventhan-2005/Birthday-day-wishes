@@ -325,12 +325,14 @@ export const JourneyPage: React.FC<JourneyPageProps> = ({ onNext, onBack }) => {
     }, 2800);
   };
 
-  // Seed ambient floating items
+  // Seed ambient floating items (reduced by 50% on mobile for performance)
   useEffect(() => {
+    const isMobile = window.innerWidth < 768;
     const list: LocalParticle[] = [];
     
-    // Floating Flowers (8 items)
-    for (let i = 0; i < 8; i++) {
+    // Floating Flowers
+    const flowerCount = isMobile ? 4 : 8;
+    for (let i = 0; i < flowerCount; i++) {
       list.push({
         id: `flower-${i}-${Math.random()}`,
         x: Math.random() * 85 + 5,
@@ -344,8 +346,9 @@ export const JourneyPage: React.FC<JourneyPageProps> = ({ onNext, onBack }) => {
       });
     }
 
-    // Floating Hearts (8 items)
-    for (let i = 0; i < 8; i++) {
+    // Floating Hearts
+    const heartCount = isMobile ? 4 : 8;
+    for (let i = 0; i < heartCount; i++) {
       list.push({
         id: `heart-${i}-${Math.random()}`,
         x: Math.random() * 85 + 5,
@@ -359,8 +362,9 @@ export const JourneyPage: React.FC<JourneyPageProps> = ({ onNext, onBack }) => {
       });
     }
 
-    // Floating balloons (3 items)
-    for (let i = 0; i < 3; i++) {
+    // Floating balloons
+    const balloonCount = isMobile ? 1 : 3;
+    for (let i = 0; i < balloonCount; i++) {
       list.push({
         id: `balloon-local-${i}-${Math.random()}`,
         x: 15 + i * 30 + (Math.random() * 10 - 5),
@@ -606,9 +610,9 @@ export const JourneyPage: React.FC<JourneyPageProps> = ({ onNext, onBack }) => {
         initial={{ opacity: 0, y: -12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        className="z-10 mt-1"
+        className="z-10 mt-1 w-full text-center"
       >
-        <h2 className="font-serif text-2xl md:text-3xl lg:text-4xl text-pastel-rose-deep font-bold tracking-wide flex items-center justify-center gap-1.5 text-glow">
+        <h2 className="responsive-title text-pastel-rose-deep font-bold tracking-wide flex items-center justify-center gap-1.5 text-glow">
           <span>Happy Birthday Sister</span>
           <motion.span
             animate={{ scale: [1, 1.2, 1] }}
@@ -682,11 +686,9 @@ export const JourneyPage: React.FC<JourneyPageProps> = ({ onNext, onBack }) => {
             return (
               <div key={index} className="relative py-1">
                 <p 
-                  className="font-serif tracking-wide indent-4"
+                  className="font-serif tracking-wide indent-4 text-[17px] sm:text-[20px] leading-[1.8] sm:leading-[1.9]"
                   style={{
-                    color: '#2F2F2F',
-                    fontSize: '20px',
-                    lineHeight: '1.9'
+                    color: '#2F2F2F'
                   }}
                 >
                   {currentTypedText}
@@ -968,8 +970,8 @@ export const JourneyPage: React.FC<JourneyPageProps> = ({ onNext, onBack }) => {
       </div>
 
       {/* 6. Route Navigation Actions - "Our Wishes" is locked/disabled until typing finishes */}
-      <div className="z-10 flex items-center gap-4 justify-center w-full max-w-sm mt-1">
-        <Button variant="outline" size="md" onClick={onBack} className="gap-1.5 flex-1 py-3">
+      <div className="z-10 flex flex-col sm:flex-row items-center gap-3 sm:gap-4 justify-center w-full max-w-sm mt-3">
+        <Button variant="outline" size="md" onClick={onBack} className="gap-1.5 w-full sm:flex-1 py-3">
           <ChevronLeft size={16} />
           <span>Back</span>
         </Button>
@@ -978,7 +980,7 @@ export const JourneyPage: React.FC<JourneyPageProps> = ({ onNext, onBack }) => {
           size="md" 
           onClick={isFinished ? onNext : undefined} 
           disabled={!isFinished}
-          className={`gap-1.5 flex-1 py-3 transition-all duration-500 ${!isFinished ? 'opacity-45 cursor-not-allowed border-dashed text-pastel-rose-deep/50' : 'shadow-[0_0_15px_rgba(243,163,178,0.35)] hover:shadow-[0_0_22px_rgba(243,163,178,0.65)]'}`}
+          className={`gap-1.5 w-full sm:flex-1 py-3 transition-all duration-500 ${!isFinished ? 'opacity-45 cursor-not-allowed border-dashed text-pastel-rose-deep/50' : 'shadow-[0_0_15px_rgba(243,163,178,0.35)] hover:shadow-[0_0_22px_rgba(243,163,178,0.65)]'}`}
         >
           {isFinished ? (
             <>

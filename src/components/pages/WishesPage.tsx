@@ -67,7 +67,7 @@ export const WishesPage: React.FC<WishesPageProps> = ({ onNext, onBack }) => {
   const selectedLetter = LETTERS.find(l => l.id === activeLetterId);
 
   return (
-    <div className="flex flex-col items-center justify-between min-h-[72vh] text-center py-6 px-4 md:px-8 w-full max-w-xl mx-auto overflow-hidden relative select-none">
+    <div className="flex flex-col items-center justify-between min-h-[58vh] sm:min-h-[72vh] text-center py-4 sm:py-6 px-2 sm:px-4 md:px-8 w-full max-w-xl mx-auto overflow-hidden relative select-none">
       
       {/* Top Header & Floating Emblem */}
       <div className="flex flex-col items-center">
@@ -75,17 +75,17 @@ export const WishesPage: React.FC<WishesPageProps> = ({ onNext, onBack }) => {
         <motion.div
           animate={{ scale: [1, 1.12, 1] }}
           transition={{ repeat: Infinity, duration: 2.2, ease: 'easeInOut' }}
-          className="mb-4 p-3 rounded-full bg-pastel-rose-light/50 border border-pastel-rose/40 shadow-sm"
+          className="mb-3 p-2.5 rounded-full bg-pastel-rose-light/50 border border-pastel-rose/40 shadow-sm"
         >
-          <Heart size={24} className="text-pastel-rose-deep fill-pastel-rose/40" />
+          <Heart size={20} className="text-pastel-rose-deep fill-pastel-rose/40" />
         </motion.div>
 
         {/* Heading */}
-        <h2 className="font-serif text-2xl md:text-3xl text-pastel-rose-deep font-bold tracking-wide mb-1.5 text-glow">
+        <h2 className="responsive-title text-pastel-rose-deep font-bold tracking-wide mb-1.5 text-glow">
           Whispers of Love
         </h2>
 
-        <p className="font-sans text-[10px] md:text-xs text-pastel-rose-deep/60 tracking-[0.2em] uppercase font-bold mb-6">
+        <p className="font-sans text-[10px] md:text-xs text-pastel-rose-deep/60 tracking-[0.2em] uppercase font-bold mb-4 sm:mb-6">
           Chapter II • Handwritten Letters
         </p>
       </div>
@@ -182,7 +182,7 @@ export const WishesPage: React.FC<WishesPageProps> = ({ onNext, onBack }) => {
 
               {/* Letter Content in gorgeous handwritten font look with solid high contrast background */}
               <div 
-                className="font-serif text-[17px] md:text-[18px] text-[#333333] bg-white/92 p-5 md:p-6 rounded-2xl border border-white/70 italic shadow-inner max-h-[250px] overflow-y-auto"
+                className="font-serif text-[16px] sm:text-[18px] text-[#333333] bg-white/92 p-4 sm:p-6 rounded-2xl border border-white/70 italic shadow-inner max-h-[170px] sm:max-h-[250px] overflow-y-auto"
                 style={{ textShadow: '0.5px 0.5px 1px rgba(0, 0, 0, 0.05)', lineHeight: '1.8' }}
               >
                 "{selectedLetter.content}"
@@ -218,12 +218,12 @@ export const WishesPage: React.FC<WishesPageProps> = ({ onNext, onBack }) => {
       </AnimatePresence>
 
       {/* Bottom Actions */}
-      <div className="flex items-center gap-4 justify-center z-10 w-full">
-        <Button variant="outline" size="md" onClick={onBack} className="gap-1.5">
+      <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 justify-center z-10 w-full max-w-sm mt-3">
+        <Button variant="outline" size="md" onClick={onBack} className="gap-1.5 w-full sm:flex-1">
           <ChevronLeft size={16} />
           <span>Back</span>
         </Button>
-        <Button variant="primary" size="md" onClick={onNext} className="gap-1.5">
+        <Button variant="primary" size="md" onClick={onNext} className="gap-1.5 w-full sm:flex-1">
           <span>Stardust Canvas</span>
           <ChevronRight size={16} />
         </Button>
