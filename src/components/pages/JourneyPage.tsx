@@ -16,8 +16,8 @@ interface JourneyPageProps {
 // ==========================================
 // EASY TO EDIT BIRTHDAY DETAILS (Sister ❤️)
 // ==========================================
-const BIRTHDAY_GIRL_NAME = "Deva bharathy";
-const BIRTHDAY_DATE = "July 3, 2009";
+const BIRTHDAY_GIRL_NAME = "Sahana";
+const BIRTHDAY_DATE = "July 3";
 
 // ==========================================
 // PHOTO GALLERY IMAGES (Add or change easily!)
