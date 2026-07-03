@@ -290,7 +290,7 @@ export const CelebrationPage: React.FC<CelebrationPageProps> = ({ onReset, onBac
                 Your Magical Wish is Sealed
               </span>
               <h3 className="font-serif text-xl sm:text-2xl font-bold text-pastel-rose-deep tracking-wide mb-3">
-                Elena Rose! 🌸
+                Deva bharathy! 🌸
               </h3>
 
               {/* Heartfelt Blessing Paragraph with high contrast readable styling */}
