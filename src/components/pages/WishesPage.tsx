@@ -35,7 +35,7 @@ const LETTERS: LetterConfig[] = [
     colorTheme: "text-pastel-rose-deep border-pastel-rose/30",
     bgGrad: "from-pastel-rose-light/50 to-white/70",
     decorativeIcon: <Flower size={20} className="text-pastel-rose-deep/75" />,
-    content: "Deva, looking back at our childhood, my absolute warmest and most cherished memories are those filled with your contagious laughter. From crafting blanket forts in the living room to whispering secret plans in the dark, you have been my constant light. You make this world infinitely softer and brighter just by being yourself. Thank you for your endless support, your gentle wisdom, and for always knowing how to make me smile. Today, I wish you a year of pure happiness, sweet achievements, and cozy moments!"
+    content: "Sahana, looking back at our childhood, my absolute warmest and most cherished memories are those filled with your contagious laughter. From crafting blanket forts in the living room to whispering secret plans in the dark, you have been my constant light. You make this world infinitely softer and brighter just by being yourself. Thank you for your endless support, your gentle wisdom, and for always knowing how to make me smile. Today, I wish you a year of pure happiness, sweet achievements, and cozy moments!"
   },
   {
     id: "letter-2",
@@ -46,7 +46,7 @@ const LETTERS: LetterConfig[] = [
     colorTheme: "text-gold-deep border-gold-soft/30",
     bgGrad: "from-pastel-gold-light/60 to-white/70",
     decorativeIcon: <Sparkles size={20} className="text-gold-accent" />,
-    content: "To the brightest star in my sky: may your journey this year be filled with stardust, courage, and unexpected wonders. You possess a unique strength that inspires everyone around you, a heart so deep that it holds warmth for all, and an elegance that is truly rare. Never doubt how capable you are of reaching the highest summits. Let your dreams set sail today, and know that I will always be here, cheering you on from the front row. Shine bright, Deva! The world is yours to conquer."
+    content: "To the brightest star in my sky: may your journey this year be filled with stardust, courage, and unexpected wonders. You possess a unique strength that inspires everyone around you, a heart so deep that it holds warmth for all, and an elegance that is truly rare. Never doubt how capable you are of reaching the highest summits. Let your dreams set sail today, and know that I will always be here, cheering you on from the front row. Shine bright, Sahana! The world is yours to conquer."
   },
   {
     id: "letter-3",
@@ -57,7 +57,7 @@ const LETTERS: LetterConfig[] = [
     colorTheme: "text-pastel-lavender-deep border-pastel-lavender/30",
     bgGrad: "from-pastel-lavender-light/50 to-white/70",
     decorativeIcon: <Coffee size={20} className="text-pastel-lavender-deep" />,
-    content: "Dear Deva, some of my absolute favorite moments are the simplest ones—sharing warm pastries, sipping on hazelnut coffee, and talking for hours about absolutely everything and nothing at all. There is an incredible, rare comfort in our bond where silence feels just as warm as laughter. You are the sibling, the confidant, and the kindred spirit I am endlessly lucky to walk through life with. Happy Birthday, my sweet sister! Here is to a million more coffee chats, inside jokes, and peaceful days together."
+    content: "Dear Sahana, some of my absolute favorite moments are the simplest ones—sharing warm pastries, sipping on hazelnut coffee, and talking for hours about absolutely everything and nothing at all. There is an incredible, rare comfort in our bond where silence feels just as warm as laughter. You are the sibling, the confidant, and the kindred spirit I am endlessly lucky to walk through life with. Happy Birthday, my sweet sister! Here is to a million more coffee chats, inside jokes, and peaceful days together."
   }
 ];
 
